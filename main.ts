@@ -2,7 +2,7 @@
  *
  * Created by: Nathan Haimanot
  * Created on: Oct 2024
- * This program ...
+ * This program counts down using neopixels
 */
 
 let loopCounter = 5
