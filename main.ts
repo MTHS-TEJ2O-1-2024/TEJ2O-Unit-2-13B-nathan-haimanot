@@ -5,19 +5,51 @@
  * This program counts down using neopixels
 */
 
-let loopCounter = 5
-let neopixelStrip: neopixel.Strip = neopixel.create(DigitalPin.P0, 5, NeoPixelMode.RGB)
+// setup
+let neopixelStrip: neopixel.Strip = null
+basic.clearScreen()
+neopixelStrip = neopixel.create(DigitalPin.P16, 4, NeoPixelMode.RGB)
+neopixelStrip.show()
+
+// start
 input.onButtonPressed(Button.A, function () {
-    let loopCounter = 5
-    while (loopCounter > 0) {
-    neopixelStrip.setPixelColor(4, neopixel.colors(NeoPixelColors.Blue))
-    neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Blue))
-    neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Blue))
-    neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Blue))
-    neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Blue))
-    loopCounter -= 1
-    basic.showNumber(loopCounter)
-    basic.clearScreen()
+    let loopcount = 4
+
+
+// light up
+    while (loopcount >= 0) {
+        neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Black))
+        neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Black))
+        neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Black))
+        neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Black))
+
+    // > 0
+    if (loopcount > 0) {
+        neopixelStrip.setPixelColor(0, neopixel.colors(NeoPixelColors.Green))
     }
-basic.showIcon(IconNames.Happy)
-})
+
+    // > 1
+    if (loopcount > 1) {
+        neopixelStrip.setPixelColor(1, neopixel.colors(NeoPixelColors.Green))
+    }
+
+    // > 2
+    if (loopcount > 2) {
+        neopixelStrip.setPixelColor(2, neopixel.colors(NeoPixelColors.Green))
+    }
+
+    // > 3
+    if (loopcount > 3) {
+        neopixelStrip.setPixelColor(3, neopixel.colors(NeoPixelColors.Green))
+    }
+
+    
+        neopixelStrip.show()
+        basic.pause(1000)
+        basic.showNumber(loopcount)
+        basic.showIcon(IconNames.Happy)
+        loopcount--
+        }
+    
+        })
+    
